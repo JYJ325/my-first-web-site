@@ -2,45 +2,6 @@
 <html>
 <head>
   <title>Whiteboard</title>
-  #canvas {
-    width: 100%;
-    height: 500px;
-    background-color: #fff;
-  }
-  window.addEventListener('DOMContentLoaded', (event) => {
-    const canvas = document.getElementById('canvas');
-    const context = canvas.getContext('2d');
-    let isDrawing = false;
-    
-    // Set up initial canvas properties
-    context.lineWidth = 2;
-    context.lineCap = 'round';
-    context.strokeStyle = '#000';
-  
-    // Event listeners for drawing functionality
-    canvas.addEventListener('mousedown', startDrawing);
-    canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('mouseup', stopDrawing);
-    canvas.addEventListener('mouseout', stopDrawing);
-    
-    function startDrawing(event) {
-      isDrawing = true;
-      const { offsetX, offsetY } = event;
-      context.beginPath();
-      context.moveTo(offsetX, offsetY);
-    }
-    
-    function draw(event) {
-      if (!isDrawing) return;
-      const { offsetX, offsetY } = event;
-      context.lineTo(offsetX, offsetY);
-      context.stroke();
-    }
-    
-    function stopDrawing() {
-      isDrawing = false;
-    }
-  });
   <style>
     #canvas {
       border: 1px solid #000;
